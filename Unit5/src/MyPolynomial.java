@@ -62,15 +62,23 @@ public class MyPolynomial {
 	}
 	
 	public MyPolynomial add(MyPolynomial p) {
-		 for(int i = 0; i < coeffs.length; i ++) {
-			 
+		double[] result, biggest, smallest;
+		if(coeffs.length > p.coeffs.length) {
+			biggest = coeffs;
+			smallest = p.coeffs;
+		} else {
+			biggest = p.coeffs;
+			smallest = coeffs;
+		}
+		result = new double[biggest.length];		
+		 for(int i = 0; i < biggest.length; i ++) {
+			 result[i] = biggest[i];			 
 		 }
-	}
-	
-	
-	
-	
-	
+		 for (int i = 0; i < smallest.length; i++) {
+			 result[i] += smallest[i];
+		 }
+		 return new MyPolynomial(result);
+	}	
 	
 }
 
